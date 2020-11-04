@@ -1,35 +1,27 @@
 #include <stdio.h>
 
-double CelToFah(double c)
+int MaxNum(int num1,int num2,int num3)
 {
-    return 1.8*c+32;
+    if(num1>num2)
+        return (num1>num3) ? num1:num3;
+    else
+        return (num2>num3) ? num2:num3;
 }
-double FahToCel(double f)
+
+int MinNum(int num1,int num2,int num3)
 {
-    return (f-32)/1.8;
+    if(num1>num2)
+        return (num2>num3) ? num3:num2;
+    else
+        return (num1>num3) ? num3:num1;
 }
 
 int main(void)
 {
-    int opt;
-    double num;
-    printf("1.¼·¾¾¿¡¼­ È­¾¾¿Âµµ·Î, 2.È­¾¾¿¡¼­ ¼·¾¾¿Âµµ·Î: ");
-    scanf("%d",&opt);
-
-    if(opt==1)
-    {
-        printf("¼·¾¾ ¿Âµµ ÀÔ·Â: ");
-        scanf("%lf",&num);
-        printf("È­¾¾ ¿Âµµ: %f \n", CelToFah(num));
-    }
-    else if(opt==2)
-    {
-        printf("È­¾¾ ¿Âµµ ÀÔ·Â: ");
-        scanf("%lf",&num);
-        printf("¼·¾¾ ¿Âµµ: %f \n", FahToCel(num));
-    }
-    else
-        printf("¼±ÅÃ ¿À·ù\n");
+    int num1,num2,num3;
+    printf("ì„¸ ì •ìˆ˜ ì…ë ¥:  ");
+    scanf("%d %d %d",&num1,&num2,&num3);
+    printf("ê°€ì¥ í° ìˆ˜: %d \n", MaxNum(num1,num2,num3));
+    printf("ê°€ì¥ ì‘ì€ ìˆ˜: %d \n", MinNum(num1,num2,num3));
     return 0;
-
 }
