@@ -1,27 +1,35 @@
 #include <stdio.h>
 
-int MaxNum(int num1,int num2,int num3)
+double CelToFah(double c)
 {
-    if(num1>num2)
-        return (num1>num3) ? num1:num3;
-    else
-        return (num2>num3) ? num2:num3;
+    return 1.8*c+32;
 }
-
-int MinNum(int num1,int num2,int num3)
+double FahToCel(double f)
 {
-    if(num1>num2)
-        return (num2>num3) ? num3:num2;
-    else
-        return (num1>num3) ? num3:num1;
+    return (f-32)/1.8;
 }
 
 int main(void)
 {
-    int num1,num2,num3;
-    printf("세 정수 입력:  ");
-    scanf("%d %d %d",&num1,&num2,&num3);
-    printf("가장 큰 수: %d \n", MaxNum(num1,num2,num3));
-    printf("가장 작은 수: %d \n", MinNum(num1,num2,num3));
+    int opt;
+    double num;
+    printf("1.섭씨에서 화씨온도로, 2.화씨에서 섭씨온도로: ");
+    scanf("%d",&opt);
+
+    if(opt==1)
+    {
+        printf("섭씨 온도 입력: ");
+        scanf("%lf",&num);
+        printf("화씨 온도: %f \n", CelToFah(num));
+    }
+    else if(opt==2)
+    {
+        printf("화씨 온도 입력: ");
+        scanf("%lf",&num);
+        printf("섭씨 온도: %f \n", FahToCel(num));
+    }
+    else
+        printf("선택 오류\n");
     return 0;
+
 }
