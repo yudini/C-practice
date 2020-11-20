@@ -16,7 +16,7 @@ int main()
     int x;
     struct node *temp=NULL;
 
-    printf("음수 값을 입려하면 프로그램 종료: \n");
+    printf("음수 값을 입력하면 프로그램 종료: \n");
     while(1){
         printf("정수 데이터 입력: ");
         scanf("%d",&x);
