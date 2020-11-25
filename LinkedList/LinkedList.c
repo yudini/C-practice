@@ -10,7 +10,7 @@ struct node *head =NULL;
 
 void insert(struct node *);
 void print(struct node *);
-void release(struct nod*);
+void release(struct node*);
 int main()
 {
     int x;
@@ -35,7 +35,7 @@ int main()
     release(head);
 }
 
-void insert(struct nod*t){
+void insert(struct node*t){
     struct node *pos;
     if(head ==NULL)
         head =t;
@@ -57,7 +57,7 @@ void insert(struct nod*t){
             }else if(pos->link==NULL&&pos->data>=t->data){
                 pos->link=t;
                 break;
-            }else if(pos->data>=t->dat&&pos->link->data<t->data){
+            }else if(pos->data>=t->data&&pos->link->data<t->data){
                 t->link =pos->link;
                 pos->link=t;
                 break;
@@ -66,3 +66,21 @@ void insert(struct nod*t){
         }
     }
 }
+
+void print(struct node *h) {
+        while(h){
+                printf("%d",h->data);
+                h=h->link;
+        }
+        printf("\n");
+}
+
+void release(struct node*c){
+        struct node *tmp;
+        while(c){
+                tmp=c;
+                c=c->link;
+                free(tmp);
+        }
+}
+
